@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alex Tumanov — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0d1117;--surface:#161b22;--line:#30363d;--text:#e6edf3;--muted:#8b949e;--brand:#58a6ff;--ok:#2ea043;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1040px;margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--line);transition:box-shadow .2s ease}
+    header.shadow{box-shadow:0 6px 20px rgba(0,0,0,.25)}
+    .nav{height:64px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .links{display:flex;gap:10px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border:1px solid var(--line);border-radius:12px;background:var(--surface);transition:transform .15s ease,border-color .15s ease}
+    .btn:hover{border-color:color-mix(in oklab,var(--brand) 60%, var(--line));transform:translateY(-1px)}
+    .btn.primary{border-color:color-mix(in oklab,var(--brand) 60%, var(--line));box-shadow:0 0 0 1px color-mix(in oklab,var(--brand) 40%, transparent) inset}
+    .links a:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:10px}
+
+    section{padding:64px 0;border-bottom:1px solid var(--line)}
+    h1{font-size:clamp(28px,4vw,40px);margin:.2rem 0 1rem}
+    h2{font-size:clamp(22px,3vw,28px);margin:0 0 1rem;color:var(--brand);position:relative;padding-top:.2rem}
+    /* little flavour bar under h2 */
+    h2::after{content:"";display:block;width:56px;height:2px;background:color-mix(in oklab,var(--brand) 65%, transparent);margin-top:.35rem;border-radius:2px}
+
+    h3{margin:.3rem 0}
+    p{margin:.2rem 0 .7rem;color:var(--muted)}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:1fr}
+    @media(min-width:820px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;transition:transform .18s ease, border-color .18s ease}
+    .card:hover{transform:translateY(-2px);border-color:color-mix(in oklab,var(--brand) 40%, var(--line))}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.25rem .6rem;color:var(--muted);font-size:.85rem}
+    .pill{display:inline-block;border-radius:999px;padding:.25rem .6rem;border:1px solid var(--line);background:#0f141b}
+    footer{padding:40px 0;color:var(--muted);text-align:center}
+    .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92rem}
+    .hero{display:grid;gap:18px}
+    @media(min-width:920px){.hero{grid-template-columns:3fr 2fr;align-items:start}}
+    .k{border:1px solid var(--line);background:var(--surface);padding:.15rem .4rem;border-radius:6px}
+
+    /* Back to top */
+    #topBtn{position:fixed;right:18px;bottom:18px;display:none;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:10px;padding:.55rem .8rem}
+    #topBtn.show{display:inline-flex}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">Alex Tumanov</a>
+      <nav class="links">
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#skills">Skills</a>
+        <a class="btn" href="#glance">At a glance</a>
+        <a class="btn" href="#cv">CV</a>
+        <a class="btn" href="#links">Links</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HOME / ABOUT -->
+    <section id="home" class="hero">
+      <div>
+        <h1>Computing Science student with real client experience</h1>
+        <p>
+          I’m Alex — originally from <strong>Mariupol, Ukraine</strong>, now based in Scotland. I grew up messing with
+          video editing, Photoshop, animations and <strong>3D modelling</strong>, which naturally pulled me into
+          <strong>programming</strong> and building practical solutions. Moving countries taught me to adapt fast,
+          learn in new environments, and stay calm under pressure.
+        </p>
+        <p>
+          I like clean structure, clear naming, and shipping work that’s both accurate and efficient. Recently I’ve been
+          creating <strong>research-based 3D assets</strong> for a Sydney traffic simulation (client project),
+          contributing to a 24-hour hackathon website, and building a small <strong>Java social app</strong>.
+          I’m open to part-time software intern roles.
+        </p>
+        <div class="row">
+          <a class="btn primary" href="#projects">View projects</a>
+          <a class="btn" href="#cv">Download CV</a>
+        </div>
+        <div style="height:10px"></div>
+        <div class="row">
+          <span class="tag">Java</span><span class="tag">HTML/CSS</span><span class="tag">Python (basics)</span>
+          <span class="tag">Git/GitHub</span><span class="tag">Linux (basic)</span><span class="tag">Blender</span><span class="tag">Photoshop</span>
+        </div>
+      </div>
+      <!-- removed the old “At a glance” card here -->
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="grid cols-3">
+
+        <article class="card">
+          <span class="pill mono">Client Project</span>
+          <h3>Sydney Traffic Simulation — Technical Assets</h3>
+          <p>
+            Designed and optimised accurate <strong>3D infrastructure assets</strong> (buildings, bridges, road sections).
+            Conducted research on real structures to match <strong>proportions, materials and layouts</strong>; iterated
+            with client feedback; kept a clean, versioned file structure. Managed <strong>100+ assets</strong>.
+          </p>
+          <div class="row">
+            <span class="tag">Blender</span><span class="tag">Photoshop</span>
+            <span class="tag">Asset optimisation</span><span class="tag">UV/texture prep</span><span class="tag">Research</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="pill mono">Hackathon</span>
+          <h3>Campus Locations Website</h3>
+          <p>
+            Built in a team of four during a <strong>24-hour hackathon</strong>. I handled
+            HTML structure, CSS styling, layout decisions, task organisation, and took part in the final presentation.
+          </p>
+          <div class="row">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Teamwork</span><span class="tag">Presentation</span>
+          </div>
+          <div class="row" style="margin-top:.4rem">
+            <a class="btn" href="https://github.com/alextumanov4308/quackathon" target="_blank" rel="noreferrer">Source</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="pill mono">University project</span>
+          <h3>“SocialConnect” — Java Social App</h3>
+          <p>
+            Java-based social app with user accounts, posts and profiles.
+            Focus on <strong>clean OOP structure</strong>, simple testable logic, and readable code.
+          </p>
+          <div class="row">
+            <span class="tag">Java</span><span class="tag">OOP</span><span class="tag">Problem solving</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Technical</h3>
+          <p class="mono">Java · Python (fundamentals) · HTML/CSS · MicroPython · Git/GitHub · Linux/CLI (basic)</p>
+        </div>
+        <div class="card">
+          <h3>Tools & Workflow</h3>
+          <p class="mono">Blender · Photoshop · Asset optimisation · UV/texture prep · Research & documentation ·
+            Clean naming & structure · Client feedback iteration · Presentation</p>
+        </div>
+        <div class="card">
+          <h3>Strengths</h3>
+          <p class="mono">Adaptability · Attention to detail · Fast learning · Organisation · Communication · Leadership</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AT A GLANCE (relocated as its own section) -->
+    <section id="glance">
+      <h2>At a glance</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3 class="mono" style="margin:0 0 .4rem">Location & availability</h3>
+          <p class="mono">Dundee, Scotland · Open to part-time internships</p>
+        </article>
+        <article class="card">
+          <h3 class="mono" style="margin:0 0 .4rem">Strengths</h3>
+          <ul style="margin:.2rem 0 0 18px;color:var(--muted)">
+            <li>Leadership (class president 7 years)</li>
+            <li>Discipline from sport</li>
+            <li>Comfortable with feedback & deadlines</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="mono" style="margin:0 0 .4rem">Languages</h3>
+          <p class="mono">Ukrainian C2 · Russian C2 · English C1</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CV + JOB ADVERT -->
+    <section id="cv">
+      <h2>CV & Job Advert</h2>
+      <p class="muted">This portfolio mirrors my CV. Download the PDF below and see the job advert I tailored it to.</p>
+      <div class="row">
+        <!-- TODO: replace with your real filenames once added to the repo -->
+        <a class="btn primary" href="CV_Alex_Tumanov.pdf" download>Download CV (PDF)</a>
+        <a class="btn" href="job-advert.pdf" target="_blank" rel="noreferrer">Job Advert (PDF)</a>
+      </div>
+      <p style="margin-top:.6rem;color:var(--muted)">Tip: add both PDFs to the repo root so these links work on GitHub Pages.</p>
+    </section>
+
+    <!-- LINKS / CONTACT -->
+    <section id="links">
+      <h2>Links & Contact</h2>
+      <div class="card">
+        <p class="mono">GitHub: <a href="https://github.com/alextumanov4308" target="_blank" rel="noreferrer">github.com/alextumanov4308</a></p>
+        <p class="mono">LinkedIn: <a href="#" target="_blank" rel="noreferrer">https://www.linkedin.com/in/alex-tumanov-5b35822a9</a></p>
+        <p class="mono">Email: <a href="mailto:alegseytumanov@gmail.com">alegseytumanov@gmail.com</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="y"></span> Alex Tumanov · Built with HTML, CSS & a little JS · Hosted on GitHub Pages</p>
+    </div>
+  </footer>
+
+  <button id="topBtn" aria-label="Back to top">↑ Top</button>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // header shadow + back-to-top
+    const header = document.querySelector('header');
+    const topBtn = document.getElementById('topBtn');
+    function onScroll(){
+      const sc = window.scrollY || document.documentElement.scrollTop;
+      header.classList.toggle('shadow', sc > 6);
+      topBtn.classList.toggle('show', sc > 600);
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    topBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+    // active nav highlight while scrolling
+    const navLinks=[...document.querySelectorAll('header .links a')];
+    const sections=[...document.querySelectorAll('main section')];
+    const io=new IntersectionObserver(entries=>{
+      const visible = entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(!visible) return; const id = '#'+visible.target.id;
+      navLinks.forEach(a=>a.classList.toggle('primary', a.getAttribute('href')===id));
+    },{rootMargin:'-45% 0px -50% 0px', threshold:[0,.25,.5,.75,1]});
+    sections.forEach(s=>io.observe(s));
+
+    // smooth scroll on nav
+    navLinks.forEach(a=>a.addEventListener('click',e=>{
+      const id=a.getAttribute('href'); if(id?.startsWith('#')){e.preventDefault();document.querySelector(id).scrollIntoView({behavior:'smooth'})}
+    }));
+  </script>
+</body>
+</html>
